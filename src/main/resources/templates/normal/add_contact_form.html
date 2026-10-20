@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/Base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Add Contact</title>
+</head>
+<body>
+	
+		<section>
+			
+			<div class="card me-3 ms-3">
+				<div class="card-body">
+					<h1 class="text-center">Add Contact</h1>
+					<div class="container-fluid mt-1">
+						<div class="row">
+							<div class="col-md-10 offset-md-1">
+							
+				<form action="#"
+				th:object="${contact}"
+				enctype="multipart/form-data"
+				method="post"
+				th:action="@{/user/process-contact}"
+				class="mt-2"
+				>
+				
+						<!-- First Name field  -->
+
+								<div class="input-group mb-3">
+									<span class="input-group-text">
+									 <i class="fa-solid fa-plus"></i>									
+									</span> <input required type="text" id="firstName" name="name"
+										class="form-control" placeholder="Enter Name Here">
+								</div>
+
+					<!-- Second Name field  -->
+
+								<div class="input-group mb-3">
+									<span class="input-group-text">
+									 <i class="fa-solid fa-user-alt"></i>									
+									</span> <input type="text" id="secondName" name="secondName"
+										class="form-control" placeholder="Enter Last Name Here">
+								</div>
+
+					<!-- Phone number Name field  -->
+
+						<div class="input-group mb-3">
+									<span class="input-group-text">
+									 <i class="fa-solid fa-phone"></i>									
+									</span> <input required  type="number" id="phone" name="phone"
+										class="form-control" placeholder="Enter Your Number Here">
+						</div>
+								
+								
+				 <!-- start Email field  -->	
+				 
+				      <div class="input-group mb-3">
+									<span class="input-group-text">
+									 @									
+									</span> <input required type="email" id="email" name="email"
+										class="form-control" placeholder="Enter Your Email Here">
+						</div>	
+						
+						
+						<!-- End Email field  -->
+						
+						<!-- Start the Work field  -->
+						
+						<div class="input-group mb-3">
+									<span class="input-group-text">
+									 <i class="fa-solid fa-briefcase"></i>									
+									</span> <input required type="text" id="work" name="work"
+										class="form-control" placeholder="Enter Your Work Here">
+						</div>
+						
+						<!-- End the Work field  -->
+						
+						<!-- Start the Description field  -->
+						<div class="input-group mb-3">
+							<textarea name="description" placeholder="Enter Contacts Details Here" id="description" class="form-control" rows="8"></textarea>
+						</div>
+						
+						<!-- End the Description field  -->
+						
+						
+						<!-- Start Image Field -->
+						
+						<div class="custom-file">
+							<input type="file" name="profileImage"/>
+						</div>
+						
+						<!-- End Image Field -->
+						
+						<!-- Start Button field -->
+						
+						<div class="container text-center">
+							<button class="btn btn-outline-primary">Save Contact</button>
+						</div>
+						
+						<!-- End Button field -->
+								
+							</form>
+							
+							
+							
+							</div>
+						
+						
+						</div>
+					
+					</div>
+				
+				
+				</div>
+			
+			
+			</div>
+			
+			<!--  Tiny MCE Code   -->
+			
+			<!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/u2yvp9jjzcbt2emnzxeeb2laxgraitizr9vtxnslbkrmxp69/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: [
+      // Core editing features
+      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+      // Your account includes a free trial of TinyMCE premium features
+      // Try the most popular premium features until Jan 11, 2026:
+      'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'advtemplate', 'ai', 'uploadcare', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
+    ],
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+    uploadcare_public_key: 'ec3cbce040e696f29de7',
+  });
+</script>
+
+
+			<script>
+				
+				$(document).ready(() =>{
+					$(".item").removeClass("active");
+					$("#add-link").addClass("active");
+				});
+				
+				</script>
+			
+			
+		</section>
+
+</body>
+</html>
